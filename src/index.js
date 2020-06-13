@@ -1,3 +1,4 @@
+require('node-fetch')
 import Hangman from './hangman'
 import getPuzzle from './requests'
 
@@ -22,8 +23,8 @@ const render = () => {
     })
 }
 
-const startGame = async () => {
-    const puzzle = await getPuzzle('2')
+const startGame = () => {
+    var puzzle = getPuzzle(2)
     game1 = new Hangman(puzzle, 5)
     render()
 }
