@@ -1,4 +1,5 @@
 const path = require('path')
+
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
@@ -6,9 +7,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules:[{
+        rules: [{
             test: /\.js$/,
-            exclude:/node_modules/,
+            exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
                 options: {
@@ -16,6 +17,10 @@ module.exports = {
                 }
             }
         }]
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'public'),
+        publicPath: '/scripts/'
     },
     devtool: 'source-map'
 }

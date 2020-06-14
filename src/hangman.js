@@ -1,3 +1,5 @@
+
+
 class Hangman {
     constructor(word, remainingGuesses) {
         this.word = word.toLowerCase().split('')
@@ -5,15 +7,18 @@ class Hangman {
         this.guessedLetters = []
         this.status = 'playing'
     }
-    calculateStatus() {
+  get  calculateStatus() {
         const finished = this.word.every((letter) => this.guessedLetters.includes(letter) || letter === ' ')
 
         if (this.remainingGuesses === 0) {
-            this.status = 'failed'
+           this.status = 'failed'
+           return `${this.status}`
         } else if (finished) {
             this.status = 'finished'
+            return `${this.status}`
         } else {
-            this.status = 'playing'
+            this.status = 'Now playing'
+            return `${this.status}`
         }
     }
     get statusMessage() {
@@ -55,11 +60,8 @@ class Hangman {
             this.remainingGuesses--
         }
 
-        this.calculateStatus()
+        
     }
 }
 
-export {Hangman as default}
-
-
-//  this is a comment just to test my suceess using github
+export { Hangman as default }

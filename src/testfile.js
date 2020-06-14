@@ -1,1 +1,0 @@
-const testFile = (a, b) => Math.pow(a, b)
